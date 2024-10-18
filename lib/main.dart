@@ -1,6 +1,10 @@
+import 'package:after_school_app/pages/sign_in/sign_in.dart';
+import 'package:after_school_app/pages/sign_up/sign_up.dart';
 import 'package:after_school_app/pages/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'common/utils/app_styles.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -14,12 +18,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
+      theme: AppTheme.appThemeData,
+
+      /* theme: ThemeData(
+        theme: AppTheme.appThemeData,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-      ),
+      ),*/
       debugShowCheckedModeBanner: false,
-      home: Welcome(),
+      initialRoute: "/",
+      routes: {
+        "/":(context) => Welcome(),
+        "/signIn":(context) => const SignIn(),
+        "/signUp":(context) => const SignUp(),
+      },
+   //   home: Welcome(), //iniitial route
     );
   }
 }

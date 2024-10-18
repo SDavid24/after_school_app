@@ -6,9 +6,10 @@ import 'package:after_school_app/util/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/widgets/text_widgets.dart';
+import '../sign_in/sign_in.dart';
 
 Widget appOnboardingPage(
-    PageController controller, {
+    PageController controller, BuildContext context, {
       String imagePath= "assets/images/reading.png",
       String title = "First see Learning",
       String subTitle = "Forget about paper. All knowledge in one learning",
@@ -32,21 +33,25 @@ Widget appOnboardingPage(
         padding: const EdgeInsets.only(left: 30, right: 30),
         child: text16Normal(text: subTitle),
       ),
-      _nextButton(index, controller),
+      _nextButton(index, controller, context),
     ],
   );
 }
 
-Widget _nextButton(int index, PageController controller){
+Widget _nextButton(int index, PageController controller, BuildContext context){
   return GestureDetector(
     onTap: (){
-      print("index is: $index");
-
       if(index < 3){
         controller.animateToPage( index,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeIn,
         );
+      }else{
+        Navigator.pushNamed(context, "/signIn");
+       /* Navigator.push(context, MaterialPageRoute(
+          builder: (BuildContext context) => const SignIn(),
+        ),
+        );*/
       }
     },
     child: Container(

@@ -1,4 +1,4 @@
-import 'package:after_school_app/pages/welcome/widgets.dart';
+import 'package:after_school_app/pages/welcome/welcome_widgets.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -36,14 +36,14 @@ class Welcome extends ConsumerWidget {
                   controller: _controller,
                   children: [
                     //first page
-                    appOnboardingPage(_controller, index: 1),
-                    appOnboardingPage( _controller,
+                    appOnboardingPage(_controller, index: 1, context),
+                    appOnboardingPage( _controller, context,
                       imagePath: "assets/images/man.png",
                       title: "Connect with everyone",
                       subTitle: "Always keep in touch with your tutor and friends. Let's get connected" ,
                       index: 2,
                     ),
-                    appOnboardingPage( _controller,
+                    appOnboardingPage( _controller, context,
                       imagePath: "assets/images/boy.png",
                       title: "Always Fascinated learning",
                       subTitle: "Anywhere, anytime. Learning time is at your discretion",
