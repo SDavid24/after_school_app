@@ -6,7 +6,10 @@ import 'image_widget.dart';
 
 Widget appTextField({
   String text = "", String iconName = "",
-  String hintText = "Type in your info", bool obscureText = false }){
+  String hintText = "Type in your info",
+  bool obscureText = false,
+  void Function(String value)? func,
+}){
   return Container(
     padding: const EdgeInsets.only(left: 25, right: 25),
     child: Column(
@@ -61,9 +64,7 @@ Widget appTextField({
                     ),
 
                   ),
-                  onChanged: (value){
-
-                  },
+                  onChanged: (value) => func!(value),
                   maxLines: 1,
                   autocorrect: false,
                   obscureText: obscureText, //it's false by default
