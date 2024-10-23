@@ -1,4 +1,6 @@
+import 'package:after_school_app/common/global_loader/global_loader.dart';
 import 'package:after_school_app/pages/sign_up/notifiers/sign_up_controller.dart';
+import 'package:after_school_app/util/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -28,14 +30,17 @@ class _SignUpState extends ConsumerState<SignUp> {
   @override
   Widget build(BuildContext context) {
     final regProvider = ref.watch(registerNotifierProvider);
+    final loader = ref.watch(appLoaderProvider);
 
+    print(loader);
     return Container(
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
           appBar: buildAppBar(text:'Sign Up'),
           backgroundColor: Colors.white,
-          body: SingleChildScrollView(
+          body: loader == false
+              ? SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -82,14 +87,20 @@ class _SignUpState extends ConsumerState<SignUp> {
                 Container(
                   margin: const EdgeInsets.only(left: 25, right: 25),
                   child: text14Normal(
-                    text: 'By creating an account, you have agreed to our terms and conditions'
-                ),), //more login options message
+                      text: 'By creating an account, you have agreed to our terms and conditions'
+                  ),), //more login options message
 
                 const SizedBox(height: 60,),
                 //app login button
                 Center(child: appButton(buttonName: 'Register', func: () => _controller.handleSignUp())),
 
               ],
+            ),
+          )
+          : const Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Colors.blue,
+              color: AppColors.primaryElement,
             ),
           ),
         ),

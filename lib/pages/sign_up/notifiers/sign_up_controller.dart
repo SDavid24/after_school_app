@@ -1,9 +1,11 @@
 
 import 'package:after_school_app/pages/sign_up/notifiers/register_notifier.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../common/global_loader/global_loader.dart';
 import '../../../common/widgets/popup_messages.dart';
 
 class SignUpController{
@@ -39,8 +41,8 @@ class SignUpController{
       return;
     }
 
-/*
-    //show loader
+
+    //show the loading icon
     ref.read(appLoaderProvider.notifier).setLoaderValue(true);
 
     var context = Navigator.of(ref.context);
@@ -60,7 +62,7 @@ class SignUpController{
         await credential.user?.updateDisplayName(state.userName);
         //get server photo url
         //get user photo url
-        toastInfo("An email has been to verify your account. PLease open that email and ");
+        toastInfo("An email has been sent to verify your account. PLease open that email and ");
         context.pop();
       }
 
@@ -70,6 +72,6 @@ class SignUpController{
 
     //show sign up page one more time
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
-*/
+
   }
 }
