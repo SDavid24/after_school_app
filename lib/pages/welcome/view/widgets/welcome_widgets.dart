@@ -1,12 +1,15 @@
 
 import 'dart:ffi';
 
+import 'package:after_school_app/common/utils/constants.dart';
 import 'package:after_school_app/common/widgets/app_shadows.dart';
-import 'package:after_school_app/util/colors.dart';
+import 'package:after_school_app/common/utils/colors.dart';
+import 'package:after_school_app/global.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/widgets/text_widgets.dart';
-import '../sign_in/sign_in.dart';
+import '../../../../common/routes/app_routes_names.dart';
+import '../../../../common/widgets/text_widgets.dart';
+import '../../../sign_in/view/sign_in.dart';
 
 Widget appOnboardingPage(
     PageController controller, BuildContext context, {
@@ -47,11 +50,9 @@ Widget _nextButton(int index, PageController controller, BuildContext context){
           curve: Curves.easeIn,
         );
       }else{
-        Navigator.pushNamed(context, "/signIn");
-       /* Navigator.push(context, MaterialPageRoute(
-          builder: (BuildContext context) => const SignIn(),
-        ),
-        );*/
+        //remember if we are first time or not
+        Global.storageService.setBool(AppConstants.STORAGE_DEVICE_OPENED_FIRST_KEY, true);
+        Navigator.pushNamed(context, AppRoutesNames.SIGN_IN);
       }
     },
     child: Container(

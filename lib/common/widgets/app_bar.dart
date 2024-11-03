@@ -6,7 +6,7 @@ And you can put a child to customise it how you want
 import 'package:after_school_app/common/widgets/text_widgets.dart';
 import 'package:flutter/material.dart';
 
-import '../../util/colors.dart';
+import '../utils/colors.dart';
 
 AppBar buildAppBar({String text = ""}){
   return AppBar(

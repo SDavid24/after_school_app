@@ -1,6 +1,6 @@
 import 'package:after_school_app/common/widgets/app_shadows.dart';
 import 'package:after_school_app/common/widgets/image_widget.dart';
-import 'package:after_school_app/util/colors.dart';
+import 'package:after_school_app/common/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 Widget text24Normal({

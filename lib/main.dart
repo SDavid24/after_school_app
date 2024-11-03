@@ -1,14 +1,22 @@
-import 'package:after_school_app/pages/sign_in/sign_in.dart';
-import 'package:after_school_app/pages/sign_up/sign_up.dart';
-import 'package:after_school_app/pages/welcome/welcome.dart';
+import 'package:after_school_app/common/routes/routes.dart';
+import 'package:after_school_app/pages/application/view/application.dart';
+import 'package:after_school_app/pages/sign_in/view/sign_in.dart';
+import 'package:after_school_app/pages/sign_up/view/sign_up.dart';
+import 'package:after_school_app/pages/welcome/view/welcome.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'common/utils/app_styles.dart';
+import 'global.dart';
 
-void main() {
+void main() async {
+
+  await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
+
+final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,19 +27,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.appThemeData,
-
-      /* theme: ThemeData(
-        theme: AppTheme.appThemeData,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),*/
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",
-      routes: {
-        "/":(context) => Welcome(),
-        "/signIn":(context) => const SignIn(),
-        "/signUp":(context) => const SignUp(),
-      },
+      navigatorKey: navKey,
+      onGenerateRoute: AppPages.generateRouteSettings,
    //   home: Welcome(), //iniitial route
     );
   }

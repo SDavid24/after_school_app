@@ -1,5 +1,6 @@
 
-import 'package:after_school_app/pages/sign_up/notifiers/register_notifier.dart';
+import 'package:after_school_app/pages/sign_in/repo/sign_in_repo.dart';
+import 'package:after_school_app/pages/sign_up/provider/register_notifier.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../common/global_loader/global_loader.dart';
 import '../../../common/widgets/popup_messages.dart';
+import '../repo/sign_up_repo.dart';
 
 class SignUpController{
   final WidgetRef ref;
@@ -48,9 +50,7 @@ class SignUpController{
     var context = Navigator.of(ref.context);
 
     try{
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: state.email,
-        password: state.password,);
+      final credential = await SignUpRepo.firebaseSignUp(state.email, state.password);
 
       if(kDebugMode){
         print(credential);
@@ -66,7 +66,25 @@ class SignUpController{
         context.pop();
       }
 
-    }catch(e){
+    }on FirebaseAuthException catch(e){
+
+      //show sign up page one more time
+      ref.read(appLoaderProvider.notifier).setLoaderValue(false);
+
+      if(e.code == 'weak-password'){
+        toastInfo("This password is too weak");
+      }else if(e.code=='email-already-in-use') {
+        toastInfo("This email address has already been registered");
+      }else if(e.code=='invalid-email') {
+        toastInfo("This email address is not valid!");
+      }
+    }
+    catch(e){
+
+      //show sign up page one more time
+      ref.read(appLoaderProvider.notifier).setLoaderValue(false);
+
+      toastInfo(e.toString());
 
     }
 

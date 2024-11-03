@@ -1,9 +1,9 @@
-import 'package:after_school_app/pages/welcome/welcome_widgets.dart';
+import 'package:after_school_app/pages/welcome/view/widgets/welcome_widgets.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'notifier/welcome_notifier.dart';
+import '../provider/welcome_notifier.dart';
 
 
 class Welcome extends ConsumerWidget {

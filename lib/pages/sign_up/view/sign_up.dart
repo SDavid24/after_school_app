@@ -1,14 +1,15 @@
 import 'package:after_school_app/common/global_loader/global_loader.dart';
-import 'package:after_school_app/pages/sign_up/notifiers/sign_up_controller.dart';
-import 'package:after_school_app/util/colors.dart';
+import 'package:after_school_app/pages/sign_up/controller/sign_up_controller.dart';
+import 'package:after_school_app/common/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../common/widgets/app_bar.dart';
-import '../../common/widgets/app_textfields.dart';
-import '../../common/widgets/button_widget.dart';
-import '../../common/widgets/text_widgets.dart';
-import 'notifiers/register_notifier.dart';
+import '../../../common/utils/image_res.dart';
+import '../../../common/widgets/app_bar.dart';
+import '../../../common/widgets/app_textfields.dart';
+import '../../../common/widgets/button_widget.dart';
+import '../../../common/widgets/text_widgets.dart';
+import '../provider/register_notifier.dart';
 
 
 class SignUp extends ConsumerStatefulWidget {
@@ -32,7 +33,6 @@ class _SignUpState extends ConsumerState<SignUp> {
     final regProvider = ref.watch(registerNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
 
-    print(loader);
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -53,21 +53,21 @@ class _SignUpState extends ConsumerState<SignUp> {
 
                 appTextField(
                   text: "User name",
-                  iconName: "assets/icons/user.png", hintText: "Enter your user name",
+                  iconName: ImageRes.user, hintText: "Enter your user name",
                   func: (userName) => ref.read(registerNotifierProvider.notifier).onUserNameChange(userName),
                 ),
                 const SizedBox(height: 20,),
 
                 appTextField(
                   text: "Email",
-                  iconName: "assets/icons/user.png", hintText: "Enter your email address",
+                  iconName: ImageRes.user, hintText: "Enter your email address",
                   func: (email) => ref.read(registerNotifierProvider.notifier).onUserEmailChange(email),
                 ),
                 const SizedBox(height: 20,),
 
                 appTextField(
                   text: "Password",
-                  iconName: "assets/icons/lock.png",
+                  iconName: ImageRes.lock,
                   hintText: "Enter your password",
                   obscureText: true,
                   func: (password) => ref.read(registerNotifierProvider.notifier).onPasswordChange(password),
@@ -76,7 +76,7 @@ class _SignUpState extends ConsumerState<SignUp> {
 
                 appTextField(
                   text: "Confirm Password",
-                  iconName: "assets/icons/lock.png",
+                  iconName: ImageRes.lock,
                   hintText: "Enter your confirmed password",
                   obscureText: true,
                   func: (rePassword) => ref.read(registerNotifierProvider.notifier).onRePasswordChange(rePassword),

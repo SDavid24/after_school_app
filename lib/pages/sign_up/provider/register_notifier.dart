@@ -1,4 +1,4 @@
-import 'package:after_school_app/pages/sign_up/notifiers/register_state.dart';
+import 'package:after_school_app/pages/sign_up/provider/register_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'register_notifier.g.dart';
 

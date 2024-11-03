@@ -1,4 +1,4 @@
-import 'package:after_school_app/util/colors.dart';
+import 'package:after_school_app/common/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme{

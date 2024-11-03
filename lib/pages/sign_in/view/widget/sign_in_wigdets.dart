@@ -1,5 +1,3 @@
-import 'package:after_school_app/common/widgets/text_widgets.dart';
-import 'package:after_school_app/util/colors.dart';
 import 'package:flutter/material.dart';
 
 
