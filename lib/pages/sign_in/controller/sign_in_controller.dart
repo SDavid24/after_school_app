@@ -1,4 +1,3 @@
-import 'package:after_school_app/common/entities/entities.dart';
 import 'package:after_school_app/common/global_loader/global_loader.dart';
 import 'package:after_school_app/common/utils/constants.dart';
 import 'package:after_school_app/global.dart';
@@ -11,6 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../common/models/user.dart';
 import '../../../common/widgets/popup_messages.dart';
 
 class SignInController{
@@ -103,7 +103,7 @@ class SignInController{
     //have a local storage
     try{
       //try to remember user info
-      Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
+      Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, '{"name": "David"}');
       Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
 
       //navigator.push(MaterialPageRoute(builder: (BuildContext context) => Container()));

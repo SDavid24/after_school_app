@@ -6,6 +6,7 @@ import 'package:after_school_app/pages/welcome/view/welcome.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../pages/home/view/home.dart';
 import '../../pages/sign_in/view/sign_in.dart';
 
 class AppPages{
@@ -16,6 +17,7 @@ class AppPages{
       RouteEntity(path: AppRoutesNames.REGISTER, page: const SignUp()),
       RouteEntity(path: AppRoutesNames.SIGN_IN, page: const SignIn()),
       RouteEntity(path: AppRoutesNames.APPLICATION, page: const Application()),
+      RouteEntity(path: AppRoutesNames.HOME, page: const Home()),
     ];
   }
 

@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 
 Widget text24Normal({
   String text = "",
-  Color color = AppColors.primaryText
+  Color color = AppColors.primaryText,
+  FontWeight fontWeight = FontWeight.normal,
 }){
   return Text(
     text,
@@ -13,7 +14,7 @@ Widget text24Normal({
     style: TextStyle(
       color: color,
       fontSize: 24,
-      fontWeight: FontWeight.normal,
+      fontWeight: fontWeight,
     ),
   );
 }

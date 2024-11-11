@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
 
-AppBar buildAppBar({String text = ""}){
+AppBar buildAppBar({String title = ""}){
   return AppBar(
     backgroundColor: Colors.white,
     bottom: PreferredSize(
@@ -19,6 +19,6 @@ AppBar buildAppBar({String text = ""}){
       ),
 
     ),
-    title: text16Normal(text: text, color: AppColors.primaryText),
+    title: text16Normal(text: title, color: AppColors.primaryText),
   );
 }

@@ -1,9 +1,5 @@
+
 import 'package:after_school_app/common/routes/routes.dart';
-import 'package:after_school_app/pages/application/view/application.dart';
-import 'package:after_school_app/pages/sign_in/view/sign_in.dart';
-import 'package:after_school_app/pages/sign_up/view/sign_up.dart';
-import 'package:after_school_app/pages/welcome/view/welcome.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,7 +7,6 @@ import 'common/utils/app_styles.dart';
 import 'global.dart';
 
 void main() async {
-
   await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }

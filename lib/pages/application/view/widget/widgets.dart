@@ -3,6 +3,8 @@ import 'package:after_school_app/common/utils/image_res.dart';
 import 'package:after_school_app/common/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../home/view/home.dart';
+
 var bottomTabs = <BottomNavigationBarItem>[
   BottomNavigationBarItem(
     icon: _bottomContainer(),
@@ -55,7 +57,7 @@ Widget _bottomContainer({
 
 Widget appScreens(int index){
   List<Widget> _screens = [
-    Center(child: appImageWithColor( imagePath: ImageRes.defaultImage, width: 250, height: 250, color: AppColors.primaryElement,),),
+    const Home(),
     Center(child: appImageWithColor(imagePath: ImageRes.search , width: 250, height: 250,color: AppColors.primaryElement, ),),
     Center(child: appImageWithColor(imagePath: ImageRes.play, width: 250, height: 250, color: AppColors.primaryElement,),),
     Center(child: appImageWithColor(imagePath: ImageRes.message, width: 250, height: 250, color: AppColors.primaryElement,),),

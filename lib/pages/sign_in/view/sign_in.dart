@@ -35,7 +35,7 @@ class _SignInState extends ConsumerState<SignIn> {
       color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          appBar: buildAppBar(text: 'Login'),
+          appBar: buildAppBar(title: 'Login'),
           backgroundColor: Colors.white,
           body: loader == false
               ? SingleChildScrollView(
